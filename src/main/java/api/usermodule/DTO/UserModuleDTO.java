@@ -1,6 +1,5 @@
 package api.usermodule.DTO;
 
-import api.usermodule.domains.User;
 import api.usermodule.domains.UserModule;
 
 /**

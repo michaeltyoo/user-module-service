@@ -1,7 +1,6 @@
 package api.usermodule.resources;
 
 import api.usermodule.DTO.ModuleDTO;
-import api.usermodule.domains.Module;
 import api.usermodule.services.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -33,7 +33,6 @@ public class UserResource {
 
     @RequestMapping(method = RequestMethod.GET, value = "/findAllModuleByUserId/{userId}")
     public PretestResponseDTO findAllModuleByUserId(@PathVariable("userId") Long userId) {
-        log.info("=================================== we are in");
         return userService.getModulesByUserId(userId);
     }
 }
