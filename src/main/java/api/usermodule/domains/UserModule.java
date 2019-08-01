@@ -2,6 +2,7 @@ package api.usermodule.domains;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @author Michael Arandityo Nugroho
@@ -10,17 +11,37 @@ import java.io.Serializable;
 public class UserModule implements Serializable {
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "module_id")
+    @ManyToOne
+    @JoinColumn(name = "module_id", insertable = false, updatable = false)
     private Module module;
 
     private Integer moduleOrder;
 
     public UserModule() {
+    }
+
+    public UserModule(User user, Module module) {
+        this.user = user;
+        this.module = module;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserModule that = (UserModule) o;
+        return Objects.equals(user, that.user) &&
+                Objects.equals(module, that.module) &&
+                Objects.equals(moduleOrder, that.moduleOrder);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, module, moduleOrder);
     }
 
     public User getUser() {

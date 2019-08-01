@@ -13,14 +13,17 @@ public class Module implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "module_id")
     private Long moduleId;
+    @Column(name = "module_code")
     private String moduleCode;
+    @Column(name = "module_name")
     private String moduleName;
 
-    @OneToMany(mappedBy = "user",
+    @OneToMany(mappedBy = "module",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    Set<UserModule> users = new HashSet<>();
+    private Set<UserModule> users = new HashSet<>();
 
     public Module() {
     }

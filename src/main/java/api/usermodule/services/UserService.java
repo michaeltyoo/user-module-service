@@ -5,6 +5,7 @@ import api.usermodule.DTO.PretestResponseListDTO;
 import api.usermodule.DTO.UserDTO;
 import api.usermodule.DTO.UserModuleDTO;
 import api.usermodule.domains.User;
+import api.usermodule.domains.UserModule;
 import api.usermodule.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +35,7 @@ public class UserService {
 
     public PretestResponseDTO getModulesByUserId(Long userId) {
         PretestResponseDTO pretestResponseDTO = new PretestResponseDTO();
-        User user = userRepository.findOne(userId);
+        User user = userRepository.findByUserId(userId);
         if (user != null && user.getModules().size() > 0) {
             pretestResponseDTO.setModules(user.getModules().stream().map(userModule -> {
                 UserModuleDTO userModuleDTO = new UserModuleDTO(userModule);

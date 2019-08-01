@@ -2,6 +2,7 @@ package api.usermodule.domains;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,14 +13,17 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long userId;
+    @Column(name = "user_code")
     private String userCode;
+    @Column(name = "user_name")
     private String userName;
 
-    @OneToMany(mappedBy = "module",
+    @OneToMany(mappedBy = "user",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    Set<UserModule> modules;
+    private Set<UserModule> modules = new HashSet<>();
 
     public User() {
     }
