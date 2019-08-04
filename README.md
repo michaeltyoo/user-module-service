@@ -39,6 +39,8 @@ you can open : localhost:[YOUR_PORT]/swagger-ui.html#/
   - (If you open from web browser) http://localhost:8080/api/user_module/findAllModuleByUserId/{userId}
         with userId as parameter (you can see the database for the values or check it on /api/user_module/all)
         
+  - I also add another simple service like findAll, findById, and some insert and update, you can check all the services if you open it at Swagger UI
+        
 Sorry if there is a lot of disadvantages
 
 Thanks for Read Me ^^
