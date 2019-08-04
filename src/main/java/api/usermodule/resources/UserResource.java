@@ -6,6 +6,7 @@ import api.usermodule.DTO.UserSaveDTO;
 import api.usermodule.domains.User;
 import api.usermodule.services.UserModuleService;
 import api.usermodule.services.UserService;
+import api.usermodule.util.UserModuleException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,11 @@ public class UserResource {
 
     @RequestMapping(method = RequestMethod.GET, value = "/findUserById/{userId}")
     public UserDTO findByUserId(@PathVariable("userId") Long userId) {
-        return new UserDTO(userService.findOne(userId));
+        try {
+            return new UserDTO(userService.findOne(userId));
+        } catch (Exception ex) {
+            throw new UserModuleException("User Not Found!");
+        }
     }
 
     @PostMapping(name = "/save")
