@@ -1,11 +1,7 @@
 package api.usermodule.services;
 
 import api.usermodule.DTO.*;
-import api.usermodule.domains.Module;
 import api.usermodule.domains.User;
-import api.usermodule.domains.UserModule;
-import api.usermodule.domains.UserModulePK;
-import api.usermodule.repositories.UserModuleRepository;
 import api.usermodule.repositories.UserRepository;
 import api.usermodule.util.UserModuleException;
 import org.slf4j.Logger;
@@ -14,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,16 +26,18 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    private void convertFromDTO(User user, UserSaveDTO userDTO){
+    private void convertFromDTO(User user, UserSaveDTO userDTO) {
         user.setUserCode(userDTO.getUserCode());
         user.setUserName(userDTO.getUserName());
     }
 
-    public User findOne(Long userId) { return userRepository.findOne(userId); }
+    public User findOne(Long userId) {
+        return userRepository.findOne(userId);
+    }
 
     public User insertUser(UserSaveDTO userDTO) {
         User user = new User();
-        if(userRepository.findAllByUserCode(userDTO.getUserCode()).size() > 0){
+        if (userRepository.findAllByUserCode(userDTO.getUserCode()).size() > 0) {
             throw new UserModuleException("User module already exist");
         }
         convertFromDTO(user, userDTO);
@@ -50,7 +46,7 @@ public class UserService {
 
     public User updateUser(UserSaveDTO userDTO) {
         User user = findOne(userDTO.getUserId());
-        if(userRepository.findAllByUserCodeAndUserIdNot(userDTO.getUserCode(), userDTO.getUserId()).size() > 0){
+        if (userRepository.findAllByUserCodeAndUserIdNot(userDTO.getUserCode(), userDTO.getUserId()).size() > 0) {
             throw new UserModuleException("User module already exist");
         }
         convertFromDTO(user, userDTO);

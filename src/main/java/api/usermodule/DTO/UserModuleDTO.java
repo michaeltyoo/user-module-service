@@ -1,7 +1,6 @@
 package api.usermodule.DTO;
 
 import api.usermodule.domains.UserModule;
-import api.usermodule.domains.UserModulePK;
 
 /**
  * @author Michael Arandityo Nugroho

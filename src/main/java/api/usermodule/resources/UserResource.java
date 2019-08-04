@@ -3,8 +3,6 @@ package api.usermodule.resources;
 import api.usermodule.DTO.PretestResponseDTO;
 import api.usermodule.DTO.UserDTO;
 import api.usermodule.DTO.UserSaveDTO;
-import api.usermodule.domains.User;
-import api.usermodule.services.UserModuleService;
 import api.usermodule.services.UserService;
 import api.usermodule.util.UserModuleException;
 import org.slf4j.Logger;

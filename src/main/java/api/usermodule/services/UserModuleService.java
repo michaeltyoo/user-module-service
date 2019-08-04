@@ -3,7 +3,6 @@ package api.usermodule.services;
 import api.usermodule.DTO.PretestResponseDTO;
 import api.usermodule.DTO.PretestResponseListDTO;
 import api.usermodule.DTO.UserModuleDTO;
-import api.usermodule.domains.User;
 import api.usermodule.domains.UserModule;
 import api.usermodule.repositories.UserModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

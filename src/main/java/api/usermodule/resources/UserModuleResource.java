@@ -1,10 +1,8 @@
 package api.usermodule.resources;
 
 import api.usermodule.DTO.PretestResponseDTO;
-import api.usermodule.DTO.UserDTO;
 import api.usermodule.DTO.UserModuleDTO;
 import api.usermodule.services.UserModuleService;
-import api.usermodule.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

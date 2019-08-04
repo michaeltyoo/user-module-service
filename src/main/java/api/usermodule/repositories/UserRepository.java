@@ -13,6 +13,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUserId(Long userId);
+
     List<User> findAllByUserCode(String userCode);
+
     List<User> findAllByUserCodeAndUserIdNot(String userCode, Long userId);
 }
