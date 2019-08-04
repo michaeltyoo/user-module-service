@@ -13,9 +13,11 @@ I'm using :
 I'm using another repository in this github for the queries of the databases.
 You can download/clone the queries from https://github.com/michaeltyoo/user-module-database.
 You need to create database with  :
+
  - name = "pretest"
  - username = "root" 
  - password = (I set it empty)
+ 
 before you import the queries. Or if you want to create database with another name, username, password, please sync it to the source, you can open \src\main\resources\application.properties on "spring.datasource" lines and change it to the same your own database configurations.
 
 # Port
