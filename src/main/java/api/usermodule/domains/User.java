@@ -20,7 +20,7 @@ public class User implements Serializable {
     @Column(name = "user_name")
     private String userName;
 
-    @OneToMany(mappedBy = "user",
+    @OneToMany(mappedBy = "userModulePK.user",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<UserModule> modules = new HashSet<>();

@@ -12,7 +12,7 @@ public class PretestResponseListDTO {
 
     public PretestResponseListDTO(UserModuleDTO userModuleDTO) {
         this.moduleName = userModuleDTO.getModuleDTO().getModuleName();
-        this.moduleOrder = userModuleDTO.getModuleOrder();
+        this.moduleOrder = userModuleDTO.getUserModulePKDTO().getModuleOrder();
     }
 
     public String getModuleName() {

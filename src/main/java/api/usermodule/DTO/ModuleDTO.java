@@ -13,6 +13,12 @@ public class ModuleDTO {
     public ModuleDTO() {
     }
 
+    public ModuleDTO(Long moduleId, String moduleCode, String moduleName) {
+        this.moduleId = moduleId;
+        this.moduleCode = moduleCode;
+        this.moduleName = moduleName;
+    }
+
     public ModuleDTO(Module module) {
         this.moduleId = module.getModuleId();
         this.moduleCode = module.getModuleCode();

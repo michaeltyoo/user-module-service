@@ -1,30 +1,29 @@
 package api.usermodule.DTO;
 
 import api.usermodule.domains.UserModule;
+import api.usermodule.domains.UserModulePK;
 
 /**
  * @author Michael Arandityo Nugroho
  */
 public class UserModuleDTO {
-    private UserDTO userDTO;
+    private UserModulePKDTO userModulePKDTO;
     private ModuleDTO moduleDTO;
-    private Integer moduleOrder;
 
     public UserModuleDTO() {
     }
 
     public UserModuleDTO(UserModule userModule) {
-        this.userDTO = new UserDTO(userModule.getUser());
-        this.moduleDTO = new ModuleDTO(userModule.getModule());
-        this.moduleOrder = userModule.getModuleOrder();
+        this.userModulePKDTO = new UserModulePKDTO(userModule.getUserModulePK());
+        this.moduleDTO = new ModuleDTO(userModule.getModule().getModuleId(), userModule.getModule().getModuleCode(), userModule.getModule().getModuleName());
     }
 
-    public UserDTO getUserDTO() {
-        return userDTO;
+    public UserModulePKDTO getUserModulePKDTO() {
+        return userModulePKDTO;
     }
 
-    public void setUserDTO(UserDTO userDTO) {
-        this.userDTO = userDTO;
+    public void setUserModulePKDTO(UserModulePKDTO userModulePKDTO) {
+        this.userModulePKDTO = userModulePKDTO;
     }
 
     public ModuleDTO getModuleDTO() {
@@ -35,11 +34,4 @@ public class UserModuleDTO {
         this.moduleDTO = moduleDTO;
     }
 
-    public Integer getModuleOrder() {
-        return moduleOrder;
-    }
-
-    public void setModuleOrder(Integer moduleOrder) {
-        this.moduleOrder = moduleOrder;
-    }
 }
