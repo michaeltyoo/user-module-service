@@ -32,12 +32,12 @@ you can open : localhost:[YOUR_PORT]/swagger-ui.html#/
   I already follow the REQUESTS and RESPONSES and you can test from :
   
   - (If you test / open from swagger) user-module-resource  -->  /api/user_module/findAllModuleByUserId/{userId}
-        with UserId as parameter (you can see the database for the values or check it on /api/user_module/all)
+        with userId as parameter (you can see the database for the values or check it on /api/user_module/all)
         
   or,
         
   - (If you open from web browser) http://localhost:8080/api/user_module/findAllModuleByUserId/{userId}
-        with UserId as parameter (you can see the database for the values or check it on /api/user_module/all)
+        with userId as parameter (you can see the database for the values or check it on /api/user_module/all)
         
 Sorry if there is a lot of disadvantages
 
